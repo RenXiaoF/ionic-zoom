@@ -1,0 +1,41 @@
+<ion-header>
+  <div class="materielapply-header">
+    <div class="materielapply-header--left">
+        <a routerLink="/suppliermy">
+          <ion-icon name="arrow-back" style="font-size:1.2rem;margin-top: 0rem;margin-right: -.1rem" color="primary"></ion-icon>
+          <span>返回</span>
+        </a>
+    </div>
+    <div class="materielapply-header--mid">物料购买申请列表</div>
+    <div class="materielapply-header--right">
+        <a routerLink="/addmaterielapply">
+          <ion-icon name="add" style="font-size:1.6rem;margin-top: -.2rem;margin-right: -.2rem" color="primary"></ion-icon>
+          <span>新增</span>
+        </a>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <div class="materielapply-content">
+    <ul class="materielapply-content--list">
+      <li *ngFor="let states of applylists" class="materielapply-content--item">
+        <div class="materielapply-content--box">
+          <div>
+            <div>外发购单：{{states.orderd}}</div>
+            <div>物料类别：{{states.ordertype}}</div>
+            <div>提交状态：{{states.orderstatue}}</div>
+          </div>
+          <div>
+            <div>日期：{{states.orderdate}}</div>
+            <div>主料申请人：{{states.orderapplyer}}</div>
+            <div>审核状态：{{states.checkstatue}}</div>
+          </div>
+        </div>
+        <div class="materielapply-content--btn">
+          <button>修改</button>
+          <button>删除</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ion-content>

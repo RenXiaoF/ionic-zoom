@@ -1,0 +1,65 @@
+// 头部样式
+.header{
+    --background:#f6f4f4;
+}
+.btn_color{
+    color:black;
+}
+.btn_fontsize{
+    font-size:0.8rem;
+}
+// 内容样式
+.banplan{
+    --background:#f6f4f4;
+}
+.node_list{
+    list-style: none;
+    margin: 0;
+    padding: 0 0.625rem;
+    margin-top: 1rem;
+    background-color: white;
+    font-size: 0.8rem;
+}
+.node_list .list_item{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    line-height: 3rem;
+}
+.node_list li:first-child{
+    border-top: 1px solid #ccc;
+
+}
+.list_item .item_info{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.item_info .toggle_style{
+    margin-right: 1rem;
+}
+.banplan .submit{
+    background-color: #fff;
+    padding: 3rem 0 1rem;
+    border-bottom: 1px solid #ccc;
+    border-bottom-width: 80%;
+}
+.submit .btn_style{
+    --background:#50abf1;
+    width: 80%;
+    margin: 0 auto;
+}
+.banplan .bottom{
+    background-color: white;
+    line-height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+.bottom .bottom_text{
+    margin-left: -9rem;
+}
+.bottom .bottom_left{
+    position: relative;
+    top: 0.2rem;
+}

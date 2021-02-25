@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="btn_fontsize">节点开启/关闭</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon class="btn_color" name="list"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="banplan">
+  <ul class="node_list">
+    <li class="list_item">
+      <div class="item_info">
+        <ion-toggle class="toggle_style"></ion-toggle>
+        <ion-text>车缝</ion-text>
+      </div>
+      <div class="item_info">
+        <ion-toggle class="toggle_style"></ion-toggle>
+        <ion-text>尾部</ion-text>
+      </div>
+    </li>
+    <li class="list_item">
+      <div class="item_info">
+        <ion-toggle class="toggle_style"></ion-toggle>
+        <ion-text>尾部物料采购</ion-text>
+      </div>
+    </li>
+  </ul>
+  <div class="submit">
+    <ion-button expand="block" class="btn_style">提交</ion-button>
+  </div>
+  <div class="bottom" (click)="gobanplanapplylist()">
+    <span><ion-icon name="paper" class="bottom_left"></ion-icon></span>
+    <span><ion-text class="btn_fontsize bottom_text">我的申请记录</ion-text></span>
+    <span><ion-icon name="arrow-forward"></ion-icon></span>
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+// 重置ion-list边距
+.list-ios{
+    margin: 0;
+}
+// 头部样式
+.header{
+    --background:#f8f8f8;
+}
+.btn_color{
+    color:black;
+}
+.btn_fontsize{
+    font-size:0.8rem;
+}
+// 内容区域
+.convertermy{
+    .apply_node{
+        ion-item{
+            .node_icon{
+                font-size:1.2rem;
+            }
+        }
+    }
+    .node_info{
+        margin-bottom: 1rem;
+        ion-item{
+            --inner-border-width:0;
+        }
+        ion-item:nth-last-child(1){
+            border-bottom: 1px solid #ccc;
+        }
+    }
+}
+
+
+.bottom_btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bottom_btn .btn_width{
+    width: 25%;
+    --background: #50abf1;
+}

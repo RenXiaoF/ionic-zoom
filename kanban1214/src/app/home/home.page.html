@@ -1,0 +1,101 @@
+<ion-header>
+  <div class="user_top">
+    <div class="user_top_left">
+      <ion-avatar>
+        <img />
+      </ion-avatar>
+    </div>
+    <div class="user_top_right">
+      <span>111</span>
+      <div class="user_top_gs">公司:</div>
+    </div>
+    <div class="quan1" style="position:absolute;"></div>
+    <div class="quan2" style="position:absolute;"></div>
+    <div class="quan3" style="position:absolute;"></div>
+  </div>
+</ion-header>
+
+<ion-content>
+
+  <ion-list class="list" style="margin-top:2.5rem;" class="border">
+    <a routerLink="/instorage" class="none-decoration">
+      <ion-item slot="start" class="border" lines="none">
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding">
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="log-in"></ion-icon>
+              <i item-start class="iconfont iconfont_big list-item-ic"></i>
+            </ion-col>
+            <ion-col size="10" align-self-center class="ion-no-padding">
+              样衣入库
+            </ion-col>
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </a>
+    <a routerLink="/producing-department" class="none-decoration">
+      <ion-item slot="start" class="border" lines="none">
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding">
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <i item-start class="iconfont iconfont_big list-item-ic"></i>
+            </ion-col>
+            <ion-col size="10" align-self-center class="ion-no-padding">
+              车间生产目标达成
+            </ion-col>
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </a>
+    <a routerLink="/arfdpay" class="none-decoration">
+      <ion-item slot="start" class="border" lines="none">
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding">
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <i item-start class="iconfont iconfont_big list-item-ic"></i>
+            </ion-col>
+            <ion-col size="10" align-self-center class="ion-no-padding">
+              应付款明细对账
+            </ion-col>
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </a>
+    <a routerLink="/weixintuisong" class="none-decoration">
+      <ion-item slot="start" class="border" lines="none">
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-no-padding">
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <i item-start class="iconfont iconfont_big list-item-ic"></i>
+            </ion-col>
+            <ion-col size="10" align-self-center class="ion-no-padding">
+              微信推送模板
+            </ion-col>
+            <ion-col size="1" align-self-center class="ion-no-padding">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </a>
+  </ion-list>
+  <!-- <ion-button (click)="login()">登录</ion-button> -->
+  <!-- <ion-button (click)="loginout()">登出</ion-button> -->
+  <!-- <ion-button (click)="loading()">loading</ion-button> -->
+
+  <!-- <app-test [name]="userName"> </app-test> -->
+
+
+</ion-content>

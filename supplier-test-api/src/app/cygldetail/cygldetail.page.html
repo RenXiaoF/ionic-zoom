@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start" (click)="goback()">
+        <ion-button>
+          <ion-icon mode="ios" class="btn_color" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="btn_fontsize">联系人名片</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ng-container *ngIf="pageData">
+      <ul class="detail">
+        <li class="avatar">
+          <span>头像</span>
+          <span><img src="../../assets/icon/favicon.png" alt="头像图片"></span>
+        </li>
+        <li>
+          <span>成员编号</span>
+          <span>{{pageData.user_id}}</span>
+        </li>
+        <li>
+          <span>成员昵称</span>
+          <span>{{pageData.user_name}}</span>
+        </li>    
+        <li class="inputList" (click)="changeInfo(0)">
+          <span>是否启用</span>
+          <ion-toggle [checked]="pageData.state" [(ngModel)]="pageData.state"></ion-toggle>
+        </li>  
+        <li (click)="changeInfo(1)">
+          <span>联系姓名</span>
+          <span>
+              {{pageData.user_link}}
+            <ion-icon name="arrow-forward"></ion-icon>
+          </span>
+        </li>  
+        <li (click)="changeInfo(2)">
+          <span>联系电话</span>
+          <span>
+            {{pageData.user_tel}}
+            <ion-icon name="arrow-forward"></ion-icon>
+          </span>
+        </li>
+        <li class="selectList">
+          <ul >
+            <li (click)="changeInfo(3)">
+              <span>设置主管</span>
+              <span>
+                {{pageData.director_name}}
+                <ion-icon name="arrow-forward"></ion-icon>
+              </span>
+            </li>
+            <li (click)="changeInfo(4)">
+              <span>设置经理</span>
+              <span>
+                {{pageData.mannager_name}}
+                <ion-icon name="arrow-forward"></ion-icon>
+              </span>
+            </li>
+            <li (click)="changeInfo(5)">
+              <span>设置总监</span>
+              <span>
+                {{pageData.general_name}}
+                <ion-icon name="arrow-forward"></ion-icon>
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="bottom_btn">
+        <ion-button expand="full" (click)="savePerson()">保存</ion-button>
+      </div>
+    </ng-container>
+
+  <!-- 设置主管/经理/总监模态框 -->
+  <div class="accountModel" *ngIf="setModel">
+      <ion-card class="modelContent">
+        <ion-card-header>
+          <ion-card-title>{{textTitle[selectIndex]}}</ion-card-title>
+        </ion-card-header>
+          
+        <ion-card-content>
+  
+          <ion-item>
+            <ion-label position="fixed">设置联系人</ion-label>
+            <!-- "action-sheet" | "alert" | "popover -->
+            <ion-select interface="action-sheet" cancel-text="取消" [(ngModel)]="selectValue">
+              <ion-select-option *ngFor="let item of selectList;let myIndex = index">{{item.user_link}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button class="confirm" (click)="confirm(selectValue)">确定</ion-button>        
+        </ion-card-content>
+      </ion-card>
+  </div>
+
+</ion-content>

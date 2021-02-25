@@ -1,0 +1,37 @@
+<ion-header>
+  <div class="messagerecording-header">
+    <div class="messagerecording-header--left">
+      <a routerLink="/home">
+        <ion-icon name="arrow-back" style="font-size:1.2rem;margin-top: 0rem;margin-right: -.1rem" color="primary">
+        </ion-icon>
+        <span>返回</span>
+      </a>
+    </div>
+    <div class="messagerecording-header--mid">消息记录</div>
+    <div class="messagerecording-header--right">
+      <a routerLink="/mainmaterielmsg">
+        <span>刷新</span>
+      </a>
+    </div>
+  </div>
+</ion-header>
+<!-- 主体内容 -->
+<ion-content>
+  <div class="messagerecording-content">
+    <div class="messagerecording-content--list">
+      <ul class="messagerecording-content--box">
+        <li *ngFor="let context of messagereord" class="messagerecording-content--childbox">
+          <a routerLink="/messagecontent" style="display:block;width:100%">
+            <div class="messagerecording-content--rows">
+              <div>
+                <span>{{context.ordernum}}</span>
+                <span>{{context.readstate}}</span>
+              </div>
+              <div>{{context.readtime}}</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

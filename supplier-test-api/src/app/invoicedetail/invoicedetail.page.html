@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start" (click)="goback()">
+        <ion-button class="btn_color">
+          <ion-icon name="arrow-back"></ion-icon>
+          <ion-text>返回</ion-text>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="font_size">单据详情</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card class="order_detail" *ngFor="let item of products">
+      <ion-card-content>
+        <ul class="detail_info">
+          <li>物料名称：{{item.codeNM}}</li>
+          <li>物料编号：{{item.code}}</li>
+          <li>颜色：{{item.color}}</li>
+          <li>规格：{{item.model}}</li>
+          <li>单位：{{item.multunit}}</li>
+          <li>数量：{{item.multqty}}<span class="purqty">({{item.UPurQty}})</span></li>
+          <li>货期：{{item.deliverdate}}</li>
+          <li>复期：{{item.FQDeliverdate}}</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  
+  </ion-content>
+  

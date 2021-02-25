@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()">
+      <a href="javascript:;">
+        <ion-button><ion-icon mode="ios" class="btn_color" name="arrow-back"></ion-icon></ion-button>
+      </a>
+    </ion-buttons>
+    <ion-title class="btn_fontsize">{{headerTitle}}</ion-title>
+    <ion-buttons slot="end">
+      <a href="javascript:;">
+        <ion-button><ion-icon mode="ios" class="btn_color" name="list"></ion-icon></ion-button>
+      </a>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- 内容区域 -->
+<ion-content class="gongyingshang">
+  <!-- 供应商入驻信息填写 -->
+  <div class="supplier_apply" *ngIf="!isApproval">
+    <ion-list class="residence_info">
+      <ion-item class="residence_item">
+        <ion-label> <span class="star">*</span> 名称:</ion-label>
+        <ion-input placeholder="请输入公司名称" [(ngModel)]="applyInfo.must.company"></ion-input>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-label> <span class="star">*</span> 公司地址:</ion-label>
+        <ion-input placeholder="请输入公司地址" [(ngModel)]="applyInfo.must.addr"></ion-input>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-label> <span class="star">*</span> 联系人:</ion-label>
+        <ion-input placeholder="请输入联系人" [(ngModel)]="applyInfo.must.contact"></ion-input>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-label> <span class="star">*</span> 联系电话:</ion-label>
+        <ion-input placeholder="请输入联系电话" [(ngModel)]="applyInfo.must.phone"></ion-input>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-label>是否为原料供应商</ion-label>
+        <ion-toggle slot="end" [(ngModel)]="applyInfo.isMeterial" [checked]="applyInfo.isMeterial"></ion-toggle>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-label>是否为成衣加工商</ion-label>
+        <ion-toggle slot="end" [(ngModel)]="applyInfo.isConverter" [checked]="applyInfo.isConverter"></ion-toggle>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-label> <span class="star">*</span> 请您准确填写资料供我司审核</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button class="btn" expand="block" (click)="submitInfo()">提交申请</ion-button>
+  </div>
+  <!-- 供应商入驻信息提交 -->
+  <div class="supplier_approval" *ngIf="isApproval">
+    <ion-list>
+      <ion-item class="residence_item">
+        <ion-text>名称：{{applyInfo.must.company}}</ion-text>
+      </ion-item>
+      <ion-item class="residence_item">
+        <ion-text>审核状态：<ion-text [class]="approvalState.content[approvalState.current].class">{{approvalState.content[approvalState.current].text}}</ion-text></ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-button class="btn" expand="block" (click)="goback()">返回</ion-button>
+    <ion-button class="btn reApply" expand="block" (click)="reApply()">重新申请</ion-button>
+  </div>  
+</ion-content>

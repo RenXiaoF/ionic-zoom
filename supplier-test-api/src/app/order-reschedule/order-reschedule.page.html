@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button class="btn_color">
+        <ion-icon name="arrow-back"></ion-icon>
+        <ion-text>返回</ion-text>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="font_size">单据详情</ion-title>
+    <ion-buttons slot="end" (click)="selectAll()">
+      <ion-button class="btn_color">
+        <ion-text>全选</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="order_detail" *ngFor="let item of products;let myIndex = index;">
+    <ion-card-content>
+      <ul class="detail_info">
+        <li>物料名称：{{item.codeNM}}</li>
+        <li>物料编号：{{item.code}}</li>
+        <li>颜色：{{item.color}}</li>
+        <li>规格：{{item.model}}</li>
+        <li>单位：{{item.multunit}}</li>
+        <li>数量：{{item.multqty}}<span class="purqty">({{item.UPurQty}})</span></li>
+        <li>货期：{{item.deliverdate}}</li>
+        <li>复期：{{item.FQDeliverdate}}</li>
+      </ul>
+      <label class="selectBox">
+        <input type="checkbox" [checked]="selectState[myIndex]" [(ngModel)]="selectState[myIndex]" (click)="changeState(myIndex)"/>
+        {{selectText[myIndex]}}
+      </label>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="bottom_btn" [disabled]="btn_disable" expand="full" (click)="fuqi()">复期</ion-button>
+  <!-- 模态框 -->
+  <div class="showModel" *ngIf="showModel">
+    <ion-card class="modelContent">
+        
+      <ion-card-content>
+        <ion-item>
+          <ion-label>复期时间:</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="this.FQDeliverdate" [value]="this.FQDeliverdate" doneText="确认" cancelText="取消" ></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="请输入复期备注" [(ngModel)]="this.fuqiData.FQDes"></ion-input>
+        </ion-item>
+        <div class="modelBottom">
+            <ion-button (click)="closeModel()">取消</ion-button>
+            <ion-button (click)="submitData()">提交</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

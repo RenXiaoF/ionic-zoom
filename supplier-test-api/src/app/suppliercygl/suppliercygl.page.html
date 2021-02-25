@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon mode="ios" class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="btn_fontsize">成员管理</ion-title>
+    <ion-buttons slot="end" (click)="showModel()">
+      <ion-button>
+        <ion-icon mode="ios" class="btn_color" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+
+<ion-content>
+  <ion-card class="contact_card" (click)="gocontactscrad(myIndex)" *ngFor="let person of contactPerson;let myIndex = index;">
+    <ion-item>
+      <ion-text>联系人昵称:{{person.user_name}}</ion-text>
+      <ion-text slot="end" [class]="person.state?'text_color_green':'text_color_red'">{{person.statenm}}</ion-text>
+    </ion-item>
+
+    <ion-card-content class="contact_content">
+      <ul class="contact_info">
+        <li>联系姓名：{{person.user_link}}</li>
+        <li>联系电话：{{person.user_tel}}</li>
+        <li>主管：{{person.d_nickname}}</li>
+        <li>经理：{{person.m_nickname}}</li>
+        <li>总监：{{person.g_nickname}}</li>
+      </ul>
+      <div>
+        <ion-button class="bottom_btn" color="medium" fill="outline" size="small">联系人名片</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <!-- 搜索模态框 -->
+  <div class="searchModel" *ngIf="searchModel">
+    <ion-card class="modelContent">
+      <ion-card-header>
+        <ion-card-title>查询联系人</ion-card-title>
+      </ion-card-header>
+          
+      <ion-card-content>
+        <ion-input [value]="nickName" [(ngModel)]="nickName" placeholder="输入成员昵称"></ion-input>
+        <ion-button class="search" shape="round" expand="full" (click)="searchNickName()">查询</ion-button>
+        <ion-button color="light" class="closeBtn" (click)="closeModel()">关闭</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

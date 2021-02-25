@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start" (click)="goback()">
+        <ion-button>
+          <ion-icon mode="ios" name="arrow-back"></ion-icon>
+          <ion-text>返回</ion-text>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>发货单</ion-title>
+      <ion-buttons slot="end">
+        <ion-button><ion-text>刷新</ion-text></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+<ion-content>
+  <!-- 头部时间 -->
+  <div class="headerdown">
+    <ion-datetime displayFormat="YYYY/MM/DD" (ionChange)="timeChange()" cancelText="取 消" doneText="确 定" [(ngModel)]="firstInitInfo.beginDate"></ion-datetime>
+    <ion-datetime displayFormat="YYYY/MM/DD" (ionChange)="timeChange()" cancelText="取 消" doneText="确 定" [(ngModel)]="firstInitInfo.endDate"></ion-datetime>
+  </div>
+  <!-- Animated Searchbar -->
+  <ion-searchbar animated showCancelButton="never" placeholder="搜索"></ion-searchbar>
+  <!-- Segment with anchors -->
+  <ul class="segment">
+    <li (click)="changeState(myIndex)" *ngFor="let item of segment;let myIndex = index;" [class]="item.isChecked?'checked':''">
+      <span>{{item.text}}</span>
+      <span class="segmentNum">({{item.num}})</span>
+    </li>      
+  </ul>  
+  <!-- card content -->
+  <div class="card_content">
+    <ion-card class="card_item" *ngFor="let item of products;let myIndex = index" (click)="clickCard(myIndex)">
+      <ion-card-content>
+        <ul class="order_item">
+          <li>
+            <span>{{item.code}}</span>
+            <span>{{item.MatName}}</span>
+            <span>{{item.Purqty}}<span class="purqty">({{item.UPurQty}})</span></span>
+          </li>
+          <li>
+            <span>{{item.ProviderNM}}</span>
+            <span class="poid">{{item.POID}}</span>
+            <span>{{item.Tel}}</span>
+          </li>
+          <li>
+            <span>{{item.mpsCode}}/{{item.mpsName}}</span>
+            <span>{{item.Confirmdate}}</span>
+          </li>
+        </ul>
+        <div class="title"><span>{{item.typeTitle}}</span></div>
+        <ion-icon class="icon" md="ios" name="arrow-forward"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+  

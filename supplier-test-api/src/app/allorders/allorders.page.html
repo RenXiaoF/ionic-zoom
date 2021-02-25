@@ -1,0 +1,63 @@
+<ion-header>
+</ion-header>
+<ion-content style="overflow-y:hidden">
+  <div class="allorders">
+    <div class="allorders-header">
+      <a routerLink="/home" class="none-decoration"><span class="back">
+          < 返回</span> </a> <span class="title">全部订单
+        </span>
+        <span class="clear" >刷新</span>
+    </div>
+    <!-- 时间选择器 -->
+    <ion-row style="background-color: white;z-index: 999;">
+      <ion-col size="6" style="text-align: center;" class="font-style" no-padding>
+        <ion-datetime done-text="选择" cancelText="取消" display-format="YYYY-M-D" min="1950" max="2025" class="date-style"
+          placeholder="{{front_date_mps}}" [(ngModel)]="front_date_mps" ></ion-datetime>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;" class="font-style" no-padding>
+        <ion-datetime done-text="选择" cancelText="取消" display-format="YYYY-M-D" min="1950" max="2025" class="date-style"
+          placeholder="{{later_date_mps}}" [(ngModel)]="later_date_mps" ></ion-datetime>
+      </ion-col>
+    </ion-row>
+    <!-- 时间选择器 -->
+
+    <!-- 搜索输入框 -->
+    <div class="allorders-search">
+      <ion-searchbar class="allorders-search--input" placeholder="请输入关键词搜索..." color="light" showCancelButton
+        cancelButtonText="取消" debounce="500"  #search></ion-searchbar>
+    </div>
+    <!-- 搜索输入框 -->
+
+    <!-- 数据展示 -->
+    <div class="allorders-list">
+      <div>
+        <ul class="allorders-list--showeara1" *ngIf="datalength">
+          <li *ngFor="let childorder of childorderlists,let i = index" style="list-style: none;width: 100%;"
+            class="allorders-list--box">
+            <div class="allorders-list--child">
+              <span>外发单号：{{childorder.Matioid}}</span>
+              <span>制单号：{{childorder.mpsid}}</span>
+              <span>补单次数：{{childorder.MpsBatch}}</span>
+              <span>数量：{{childorder.qty}}</span>
+            </div>
+            <div class="allorders-list--child">
+              <span>排单日期：{{childorder.filldate}}</span>
+              <span>款号：{{childorder.Code}}</span>
+              <span>要求货期：{{childorder.RealMatOutDate}}</span>
+              <span>颜色：{{childorder.colornmlist}}</span>
+            </div>
+            <div class="allorders-list--showeara2">
+              <div><a routerLink="/materielbuydetails" class="none-decoration">详情</a></div>
+              <div><a routerLink="/search" class="none-decoration">公益信息</a></div>
+              <div><a routerLink="/materielapply" class="none-decoration">物料购买申请</a></div>
+            </div>
+          </li>
+        </ul>
+        <ul *ngIf="datalength == false">
+          <div><img src="../../assets/icon/favicon.png" alt=""></div>
+        </ul>
+      </div>
+    </div>
+    <!-- 数据展示 -->
+  </div>
+</ion-content>

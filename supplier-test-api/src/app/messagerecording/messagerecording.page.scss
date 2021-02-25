@@ -1,0 +1,95 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+@mixin  headstyle {
+    color: #50abf1;
+    display: flex;
+    height:1rem;
+    justify-content: space-between;
+}
+// ---  头部 ---
+.messagerecording-header{
+    width: 100%;
+    font-size:.8rem;
+    display: flex;
+    justify-content: space-between;
+    padding:.6rem;
+    box-sizing: border-box; 
+    background: white;
+    margin-bottom: .2rem;
+    &--left{
+        >a{
+           @include headstyle();
+        }
+        
+    }
+    &--mid{
+        font-weight: 800;
+    }
+    &--right{
+        >a{
+            @include headstyle();
+        }
+    }
+}
+// --- 主体 ---
+.messagerecording-content{
+    width: 100%;
+    height: 100%;
+    background:rgb(217, 215, 219);
+    &--list{
+        width:100%;
+        height: 100%;
+        padding-top:.1rem;
+    }
+    &--rows{
+        width: 100%;
+        padding: .4rem .4rem 0 .4rem;
+        background: white;
+        border-bottom: .1rem solid rgb(217, 215, 219);
+        box-sizing: border-box;
+        >div{
+            width: 100%;
+            text-align: left;
+            font-size: .9rem;
+            display: flex;
+            justify-content: space-between;
+            padding: .1rem;
+            box-sizing: border-box;
+            color: #555555;
+            >span:first-child{
+                font-size: 1rem;
+                color: #487795;
+            }
+            >span:last-child{
+                font-size: .8rem;
+                color: rgb(217,215,219)
+            }
+        }
+        >div:last-child{
+            display: block;
+            text-align: right;
+            width: 100%;
+            box-sizing: border-box;
+           
+        }
+    }
+    &--btn{
+        width: 100%;
+        margin: .4rem auto .2rem;
+        display: flex;
+        justify-content: space-between;
+        >button{
+            margin:.4rem auto;
+            width: 80%;
+            height: 2rem;
+            color: white;
+            background: #50abf1;
+            border-radius: .4rem;
+        }
+    }
+}

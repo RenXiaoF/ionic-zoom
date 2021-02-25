@@ -1,0 +1,113 @@
+.border { border: 1px solid #cccccc }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border { border: 0.5px solid #cccccc }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border { border: 0.333333px solid #cccccc }
+}
+// 头部样式
+.btn_color{
+    color:#50abf1;
+}
+.btn_fontsize{
+    font-size:0.8rem;
+}
+// 内容区域
+.instorage{
+    --background:#f6f4f4;
+}
+// 扫描输入框
+.list{
+    list-style: none;
+    margin:0.333rem 1rem;
+    padding: 0;
+}
+.list .list-item{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.625rem;
+    margin: 0.5rem 0;
+    background-color: white;
+}
+.list-item ion-icon{
+    margin:0 0.625rem;
+    font-size: 1.5rem;
+}
+.list-item .inputText{
+    width: 70%;
+    border: 0;
+    box-sizing: border-box;
+}
+.inputText::-webkit-input-placeholder{
+    font-size: 0.8rem;
+    transform: translate(0, -0.2rem);
+}
+.inputText::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    font-size: 0.8rem;
+    transform: translate(0, -0.2rem);
+}
+.inputText:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    font-size: 0.8rem;
+    transform: translate(0, -0.2rem);
+}
+.inputText:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    font-size: 0.8rem;
+    transform: translate(0, -0.2rem);
+}
+// 卡片内容
+.card_content{
+    .card_item{
+        background-color: white;
+        ion-card-header{
+            padding:  0.5rem 0.8rem 0; 
+            ion-card-title{
+                font-size: 0.8rem;
+                text-align: center;
+            }
+        }
+        ion-card-content{
+            display: flex;
+            justify-content: space-between;
+            color:#020202;
+            font-size: 0.8rem;
+            padding-left:0.5rem; 
+            padding-right:0.5rem; 
+            position: relative;
+            .clothes_pic{
+                width: 30%;
+                margin-right: 0.5rem;
+            }
+            .clothes_info{
+                width: 70%;
+                ul{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    li{
+                        width: 50%;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+            .icon{
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    }
+}
+// 底部按钮
+.submit{
+    position: fixed;
+    bottom: 2rem;
+    left:50%;
+    margin-left:-40%;
+    width: 80%;
+    height:2.5rem;
+    font-size: 1.2rem;
+}

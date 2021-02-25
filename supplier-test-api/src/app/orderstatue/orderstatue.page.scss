@@ -1,0 +1,115 @@
+// 头部样式
+ion-header{
+    ion-toolbar{
+        --background: #f8f8f8;
+        --color:#0086f7;
+        ion-title{
+            color:black;
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+        ion-button{
+            color:black;
+            font-size: 0.8rem;
+        }
+    }
+}
+// 去掉ion-toolbar默认下边框
+.header-ios ion-toolbar:last-child{
+    --border-width:0;
+}
+.header-md:after{
+    height:0;
+}
+
+ion-content{
+    position: relative;
+    --background:#eef1f6;
+    // 头部时间
+    .headerdown{
+        display: flex;
+        justify-content: space-around;
+        background-color: #f8f8f8;
+        line-height: 2rem;
+        font-size: 0.8rem;
+    }
+    // 搜索框
+    ion-searchbar{
+        --background:white;
+    }
+    .segment{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        font-size: 0.625rem;
+        background-color: white;
+        line-height: 2rem;
+        // width: 94%;
+        // border-radius: 0.5rem;
+        // margin: 0 auto;
+        .checked{
+            color:#0086f7;
+            border-bottom:1px solid #0086f7;
+        }
+        .segmentNum{
+            color:#f25454;
+            margin-left: 0.25rem;
+        }
+    }
+    // 卡片内容
+    .card_content{
+
+        .card_item{
+            position: relative;
+            background-color: white;
+            ion-card-content{
+                .order_item{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 0.625rem;
+                    line-height: 1.5rem;
+                    padding-left: 0.5rem;
+                    li{
+                        display: flex;
+                        justify-content: space-between;
+                        .purqty{
+                            color:#f25454;
+                        }
+                    }
+                    .poid{
+                        color:#0086f7;
+                    }
+                }
+            }
+            .icon{
+                font-size:1.25rem;
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+            .title{
+                width: 4rem;
+                height: 4rem;
+                background-color: #007FBC;
+                position: absolute;
+                top: -2rem;
+                left: -2rem;
+                transform:rotate(-45deg);
+                -ms-transform:rotate(-45deg); /* Internet Explorer */
+                -moz-transform:rotate(-45deg); /* Firefox */
+                -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+                -o-transform:rotate(-45deg); /* Opera */
+                span{
+                    color:white;
+                    position: absolute;
+                    bottom: 0;
+                    left: 1rem;
+                }
+            }  
+        }
+    }
+}

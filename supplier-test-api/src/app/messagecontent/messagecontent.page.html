@@ -1,0 +1,21 @@
+<ion-header>
+    <div class="messagecontent-header">
+      <div>消息记录</div>
+    </div>
+  </ion-header>
+  <!-- 主体内容 -->
+  <ion-content>
+    <div class="messagecontent-content">
+      <div class="messagecontent-content--list">
+        <div class="messagecontent-content--box">
+          <div>发送人：{{transer}}</div>
+          <div>接收时间：{{receievetime}}</div>       
+        </div>
+        <div class="messagecontent-content--showarea">{{receievecontext}}</div>
+        <div class="messagecontent-content--btn">
+            <a routerLink="/messagerecording" style="display:block;width:100%"><button>删除</button></a>
+            <a routerLink="/messagerecording" style="display:block;width:100%"><button>确定</button></a>
+        </div>
+      </div>
+    </div>
+  </ion-content>

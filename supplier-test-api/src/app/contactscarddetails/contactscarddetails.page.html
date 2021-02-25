@@ -1,0 +1,36 @@
+<!-- 头部 -->
+<ion-header>
+  <div class="contactscarddetails-header">
+    <div class="contactscarddetails-header--left">
+      <a href="javascript:;" (click)="goback()">
+        <ion-icon name="arrow-back" style="font-size:1.2rem;margin-top: 0rem;margin-right: -.1rem" color="primary">
+        </ion-icon>
+        <span>{{transdata.title}}</span>
+      </a>
+    </div>
+    <div class="contactscarddetails-header--right"></div>
+  </div>
+</ion-header>
+<!-- 主体 -->
+<ion-content class="content">
+  <ng-container *ngIf="transdata.type == 'input'" class="contactscarddetails-content">
+    <div class="contactscarddetails-content--input">
+      <span>{{transdata.title}}:</span>
+      <div>
+        <ion-input clearInput placeholder="" [(ngModel)]="backvalue"></ion-input>
+      </div>
+      <ion-button class="contactscarddetails-content--btn" (click)="getbackvalue(0,transdata.title)">确定</ion-button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="transdata.type == 'search'" class="contactscarddetails-content">
+    <div class="contactscarddetails-content--search">
+      <ion-item>
+        <ion-label>{{transdata.title}}:</ion-label>
+        <ion-select okText="确定" cancelText="取消" [(ngModel)]="backvalue">
+          <ion-select-option *ngFor="let item of selectlist" value= {{item.user_name}}>{{item.user_name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button class="contactscarddetails-content--btn" (click)="getbackvalue()">确定</ion-button>
+    </div>
+  </ng-container>
+</ion-content>

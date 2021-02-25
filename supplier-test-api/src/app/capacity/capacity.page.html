@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon name="arrow-back"></ion-icon>
+        <ion-text>返回</ion-text>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="font_size">产能与产值录入</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-text>需要排单时间：</ion-text>
+    <ion-text class="text_center">2019-08-01</ion-text>
+  </ion-item>
+  <ion-item class="input_item">
+    <ion-label>裁床数：</ion-label>
+    <ion-input placeholder="请输入裁床数量"></ion-input>
+  </ion-item>
+  <ion-item class="input_item">
+    <ion-label>车台数：</ion-label>
+    <ion-input placeholder="请输入车胎数量"></ion-input>
+  </ion-item>
+  <ion-item class="input_item">
+    <ion-label>裁床人员：</ion-label>
+    <ion-input placeholder="请输入裁床人员"></ion-input>
+  </ion-item>
+  <ion-item class="input_item">
+    <ion-label>车缝人员：</ion-label>
+    <ion-input placeholder="请输入车缝人员"></ion-input>
+  </ion-item>
+  <ion-item class="input_item">
+    <ion-label>尾部人员：</ion-label>
+    <ion-input placeholder="请输入尾部人员"></ion-input>
+  </ion-item>
+  <ion-item class="input_item">
+    <ion-label>申请产值：</ion-label>
+    <ion-input placeholder="请输入申请产值"></ion-input>
+  </ion-item>
+  <ion-button shape="round" expand="full" (click)="gocapacityrecord()">保存</ion-button>
+</ion-content>

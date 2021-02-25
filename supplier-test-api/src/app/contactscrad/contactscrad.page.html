@@ -1,0 +1,98 @@
+<!-- 头部 -->
+<ion-header>
+  <div class="contactscard-header">
+    <div class="contactscard-header--left">
+      <a routerLink="/suppliercygl">
+        <ion-icon name="arrow-back" style="font-size:1.2rem;margin-top: 0rem;margin-right: -.1rem" color="primary">
+        </ion-icon>
+        <span>联系人名片</span>
+      </a>
+    </div>
+    <div class="contactscard-header--right"></div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ng-container class="contactscard-content">
+    <div class="contactscard-content--box">
+      <div class="contactscard-content--avater">
+        <div>
+          <div>头像</div>
+          <div><img src="../../assets/icon/favicon.png" alt=""></div>
+        </div>
+      </div>
+      <div class="contactscard-content--item">
+        <div>成员编号</div>
+        <div>{{cardinformation.user_id}}</div>
+      </div>
+      <div class="contactscard-content--item">
+        <div>成员昵称</div>
+        <div>{{cardinformation.user_name}}</div>
+      </div>
+      <div class="contactscard-content--item">
+        <div>是否启用</div>
+        <ion-toggle [(ngModel)]="isuse" [checked] = "isuse"></ion-toggle>
+      </div>
+      <div class="contactscard-content--item" (click)="gocontactcarddetails(0)">
+        <div>联系姓名</div>
+        <div>
+          <span>{{inputdata[0]}}</span>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </div>
+      <div class="contactscard-content--item" (click)="gocontactcarddetails(1)">
+        <div>联系电话</div>
+        <div>
+          <span>{{inputdata[1]}}</span>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </div>
+      <div class="contactscard-content--item" (click)="gocontactcarddetails(2)">
+        <div>设置主管</div>
+        <div>
+          <span>{{searchdata[0]}}</span>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </div>
+      <div class="contactscard-content--item" (click)="gocontactcarddetails(3)">
+        <div>设置经理</div>
+        <div>
+          <span>{{searchdata[1]}}</span>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </div>
+      <div class="contactscard-content--item" (click)="gocontactcarddetails(4)">
+        <div>设置总监</div>
+        <div>
+          <span>{{searchdata[2]}}</span>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="contactscard-content--btn">
+    <ion-button color="primary" (click)="saveInfo()">提交</ion-button>
+  </div>
+
+  <!-- 弹框 -->
+  <ng-container *ngIf="inputType" class="contactscarddetails-content">
+      <div class="contactscarddetails-content--input">
+        <span>文本框:</span>
+        <div>
+          <ion-input clearInput placeholder=""></ion-input>
+        </div>
+        <ion-button class="contactscarddetails-content--btn" (click)="getbackvalue()">确定</ion-button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="inputType" class="contactscarddetails-content">
+      <div class="contactscarddetails-content--search">
+        <ion-item>
+          <ion-label>搜索框</ion-label>
+          <ion-select okText="确定" cancelText="取消">
+            <ion-select-option *ngFor="let item of selectlist" value= {{item.user_name}}>{{item.user_name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button class="contactscarddetails-content--btn" (click)="getbackvalue()">确定</ion-button>
+      </div>
+    </ng-container>
+</ion-content>

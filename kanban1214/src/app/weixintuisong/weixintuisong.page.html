@@ -1,0 +1,31 @@
+<ion-header>
+  <!-- <ion-toolbar color="primary"> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{exampleJson.content_param.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content" style="background-color: green;">
+  <!-- <ion-label>申请人信息</ion-label> -->
+  <ion-list class="ion_list" *ngFor="let item of exampleItem">
+    <ion-item class="types_text" *ngIf="item.act_type == '0'">
+      <ion-text class="wenzi">申请人ID：</ion-text>
+      <ion-text class="ion_text">{{item.content0}}</ion-text>
+      <ion-toggle checked color="primary"></ion-toggle>
+    </ion-item>
+    <ion-item class="types_input" *ngIf="item.act_type == '1'">
+      <ion-text>申请人电话：</ion-text>
+      <ion-input class="ion_input" value="{{item.content1}}"></ion-input>
+      <ion-toggle checked color="primary"></ion-toggle>
+    </ion-item>
+    <div class="types" *ngIf="item.act_type == '2'">
+      <button class="ion_button_shh">{{item.content2}}</button>
+    </div>
+    <div class="types" *ngIf="item.act_type == '3'">
+      <button class="ion_button_jj">{{item.content3}}</button>
+    </div>
+  </ion-list>
+</ion-content>

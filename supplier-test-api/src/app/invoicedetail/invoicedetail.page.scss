@@ -1,0 +1,40 @@
+// 头部样式
+ion-header{
+    ion-toolbar{
+        --background:#f8f8f8;
+        ion-title{
+            font-size: 0.8rem;
+        }
+        .btn_color{
+            color:black;
+            font-size: 0.8rem;
+        }
+    }
+}
+// 内容样式
+ion-content{
+    .order_detail{
+        ion-card-content{
+            padding-left:0.5rem;
+            padding-right:0.5rem;
+            .detail_info{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 0.8rem;
+                li{
+                    width: 62%;
+                    line-height: 1.5rem;
+                    .purqty{
+                        color:#f25454;
+                    }
+                }
+                li:nth-child(2n){
+                    width: 38%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start" (click)="goBackPage()">
+      <ion-button>
+        <ion-icon mode="ios" class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{headerTitle}}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="pinchzoom">
+
+  <div >
+    <div>
+      <img src="../../assets/images/bind1.PNG" >
+    </div>
+    <div>放大缩小</div>
+  </div>
+
+  <ion-item *ngFor="let r of delphi"  >
+    <ion-label>{{r.mpsid}}</ion-label>
+    <ion-label>{{r.Filldate}}</ion-label>
+    <ion-label>{{r.state}}</ion-label>
+    <ion-label>{{r.operator}}</ion-label>
+    <ion-label>{{r.editdate}}</ion-label>
+    <ion-label>{{r.CustomerID}}</ion-label>
+    <ion-label>{{r.ConfirmDate}}</ion-label>
+    <ion-label>{{r.Season}}</ion-label>
+    <ion-label>{{r.UrgencyState}}</ion-label>
+    <ion-label>{{r.BFZCalImport}}</ion-label>
+  </ion-item>
+</ion-content>

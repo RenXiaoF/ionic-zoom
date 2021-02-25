@@ -1,0 +1,218 @@
+// 清空默认样式
+*{box-sizing: border-box;}
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Microsoft YaHei";
+    font-size:14px;
+    color:#333;
+}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+ul,ol {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: #232323;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+input, textarea {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+.border-bottom { border-bottom: 1px solid #cccccc }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border-bottom { border-bottom: 0.5px solid #cccccc }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border-bottom { border-bottom: 0.333333px solid #cccccc }
+}
+// 头部样式
+.btn_color{
+    color:white;
+}
+.btn_fontsize{
+    font-size:0.8rem;
+}
+.user_top {
+    font-weight:bold;
+}
+.headerup {
+    display:flex;
+    justify-content:space-between;
+    color:#fff;
+    font-size:0.75rem;
+    height:3rem;
+    align-items:center;
+    --background:#50abf1;
+}
+// 去掉ion-toolbar默认下边框
+.header-ios ion-toolbar:last-child{
+    --border-width:0;
+}
+.header-md:after{
+    height:0;
+}
+
+.headerup>.headerupcenter {
+    font-size:0.75rem !important;
+    padding: 0;
+    text-align: center;
+}
+.headerup>.headerupright{
+    margin-right: 0.8rem;
+}
+
+// 内容区域
+.suppliermy{
+    width: 100%;
+    height: 100%;
+    --background: #f6f4f4;
+    .iconfont{
+        font-size: 1.4rem;
+    }
+    .headerdown {
+        display:flex;
+        justify-content:space-around;
+        color:#fff;
+        font-size:0.75rem;
+        text-align:center;
+        height:4.5rem;
+        align-items:center;
+        background-color:#50abf1;
+        .headerdownleft,.headerdownright {
+            display:flex;
+            flex-direction:column;
+            .icon_person, .working_point{
+                margin: 0 auto;
+            }
+        }
+        .headerupright{
+            font-weight:normal;
+            div{
+                width: 100%;
+                text-align: right;
+                padding: 0 .4rem
+            }
+        }
+    }
+    // 我的订单、发货单
+    .myOrder{
+        font-size: 0.75rem;
+        background-color: white;
+        .order_title{
+            font-size: 0.75rem;
+            padding-left: 1rem;
+            line-height: 1.5rem;
+            margin:0;
+        }
+        .order_list{
+            display: flex;
+            justify-content: left;
+            padding: 0;
+            li{
+                width: 25%;
+            }
+            .order_item{
+                display: flex;
+                flex-direction:column;
+                justify-content: space-between;
+                align-items: center; 
+                .order_icon{
+                    color: #50abf1;
+                    font-size:1.5rem;
+                    margin-bottom: 0.25rem;
+                }
+            }
+        } 
+    }
+    // 对账单、成员管理
+    .account, .person_manage{
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        padding:0.5rem 0.8rem;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    // 添加联系人模态框
+    .wxModel, .accountModel{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .modelContent{
+            position: relative;
+            background-color: white;
+            width: 90%;
+            ion-card-header{
+                --background:#50abf1;
+                text-align: center;
+                padding: 0.5rem 0.8rem;
+                ion-card-title{
+                    font-size: 1rem;
+                    color:white;
+                }
+            }
+            ion-card-content{
+                ion-item{
+                    // text-align: center;
+                    ion-datetime{
+                        text-align: center;
+                    }
+                }
+                .submit{
+                    width: 90%;
+                    margin: 2rem auto 0;
+                }
+            }
+            .closeBtn{
+                position: absolute;
+                top: -2.25rem;
+                right: 0.25rem;
+                height:1.75rem;
+                --color:red;
+            }
+        }
+    }
+
+}
+
+.account>.account_left, .person_manage>.manage_left{
+    font-size: 1.4rem;
+    color:#77abf2;
+}
+.account>.account_center, .person_manage>.manage_center{
+    width: 70%;
+    margin-left: -2.5rem;
+    font-size: 0.8rem;
+}
+.account>.account_right, .person_manage>.manage_right{
+    color:#ccc;
+}
+.icon{
+    margin-left: 0.25rem;
+}

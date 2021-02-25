@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <a routerLink="/home">
+        <ion-button>
+          <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+        </ion-button>
+      </a>
+    </ion-buttons>
+    <ion-title class="btn_fontsize">样衣入库</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="btn_color btn_fontsize" (click)="clear()">全部清空</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- 主要内容区域 -->
+<ion-content class="instorage">
+  <!-- 条形码扫描 -->
+  <ul class="list">
+    <li class="list-item">
+      <ion-icon name="barcode"></ion-icon>
+      <input class="inputText" type="text" placeholder="请扫描或输入库位" height=80% [value]="store_house_key"
+        [(ngModel)]="store_house_key" />
+      <ion-icon name="search" (click)="getStoreHouse()"></ion-icon>
+    </li>
+    <li class="list-item">
+      <ion-icon name="barcode"></ion-icon>
+      <input class="inputText" type="text" placeholder="请扫描或输入条码" [value]="clothes_key" [(ngModel)]="clothes_key" />
+      <ion-icon name="search" (click)="getClothes()"></ion-icon>
+    </li>
+  </ul>
+  <!-- 卡片内容 -->
+  <div class="card_content">
+    <ion-card class="card_item" *ngFor="let cloth of clothes;let myIndex = index;">
+      <ion-card-header>
+        <ion-card-title>条码：{{cloth.barcode}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="clothes_pic">
+          <img *ngIf="!cloth.Picture" src="../../assets/demo.png" alt="{{cloth.Name}}" />
+          <img *ngIf="cloth.Picture" src="data:image/jpg;base64,{{cloth.Picture}}" alt="{{cloth.Name}}" />
+        </div>
+        <div class="clothes_info">
+          <ul>
+            <li>款号：{{cloth.Code}}</li>
+            <li>款名：{{cloth.Name}}</li>
+            <li>库位：{{store_house}}</li>
+            <li>数量：{{ cloth.Num }}</li>
+            <li>颜色编号：{{cloth.colorid}}</li>
+            <li>颜色名称：{{cloth.color}}</li>
+            <li>尺码标题：{{cloth.Vsize}}</li>
+          </ul>
+        </div>
+        <svg t="1564727672376" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          p-id="4972" width="20" height="20" (click)="delCloth(myIndex)">
+          <path
+            d="M728.001591 332.008155a32.425838 32.425838 0 0 1-10.979275 25.030472L562.971142 512l154.051174 155.018261a34.985773 34.985773 0 0 1 0.4551 50.459155 34.701335 34.701335 0 0 1-25.485571 10.524175 37.375045 37.375045 0 0 1-25.997558-10.012189L512 562.971142l-153.994286 155.01826a37.375045 37.375045 0 0 1-25.997558 10.012189 34.701335 34.701335 0 0 1-25.485571-10.524175 34.701335 34.701335 0 0 1-10.524176-25.485571 32.425838 32.425838 0 0 1 10.979275-25.030472L461.028858 512 306.977684 356.981739a32.425838 32.425838 0 0 1-10.979275-25.030471 34.701335 34.701335 0 0 1 10.524176-25.428684 34.701335 34.701335 0 0 1 25.485571-10.524175c10.012189 0 18.659079 3.356359 25.997558 10.012189L512 461.028858l153.994287-155.01826a37.375045 37.375045 0 0 1 25.997558-10.012189 34.701335 34.701335 0 0 1 25.485571 10.524175 34.701335 34.701335 0 0 1 10.524175 25.485571z m40.958954-263.502599a505.615523 505.615523 0 0 1 186.533899 186.477012A502.941814 502.941814 0 0 1 1023.986916 512a502.941814 502.941814 0 0 1-68.492472 257.017432 505.615523 505.615523 0 0 1-186.477012 186.477012A502.941814 502.941814 0 0 1 512 1023.986916a502.941814 502.941814 0 0 1-257.017431-68.492472 505.615523 505.615523 0 0 1-186.477013-186.477012A502.941814 502.941814 0 0 1 0.013084 512c0-92.669632 22.811861-178.342109 68.492472-257.017432a505.615523 505.615523 0 0 1 186.477013-186.477012A502.941814 502.941814 0 0 1 512 0.013084c92.669632 0 178.342109 22.811861 257.017432 68.492472z m54.043063 754.498052a445.14418 445.14418 0 0 0 95.002017-139.999978c22.641199-54.043063 33.961799-110.987386 33.961798-171.00363a426.541988 426.541988 0 0 0-34.985772-171.00363 431.37742 431.37742 0 0 0-93.978043-139.94309 445.14418 445.14418 0 0 0-139.999978-95.002017A437.350601 437.350601 0 0 0 512 71.97569a426.541988 426.541988 0 0 0-171.00363 34.985772 431.37742 431.37742 0 0 0-139.94309 93.978043 445.14418 445.14418 0 0 0-95.002017 139.999978A437.350601 437.350601 0 0 0 71.97569 512c0 60.016244 11.661924 117.017454 34.985772 171.00363a431.37742 431.37742 0 0 0 93.978043 139.94309 445.14418 445.14418 0 0 0 139.999978 95.002017c54.043063 22.754974 110.987386 34.018686 171.00363 34.018686a426.541988 426.541988 0 0 0 171.00363-34.985773 431.37742 431.37742 0 0 0 139.94309-93.978042z"
+            fill="#f5222d" p-id="4973"></path>
+        </svg>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <!-- 底部按钮 -->
+  <ion-button expend="block" [disabled]="clothes.length==0?true:false" class="submit" (click)="submit()">
+    提 交
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,27 @@
+// 头部样式
+ion-header{
+    ion-toolbar{
+        color:#37afec;
+    }
+}
+// 去掉ion-toolbar默认下边框
+.header-ios ion-toolbar:last-child{
+    --border-width:0;
+}
+.header-md:after{
+    height:0;
+}
+// 内容样式
+ion-content{
+    --background:#f0eff4;
+    ion-row{
+        background-color: white;
+        color:#37afec;
+        padding-bottom: 1rem;
+    }
+    ion-button{
+        width: 90%;
+        margin: 1rem auto 0;
+        --background:#3ab5f1;
+    }
+}

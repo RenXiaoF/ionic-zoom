@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()"> 
+      <ion-button>
+        <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>工作点审批</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="contact_card">
+    <ion-item class="btn_fontsize">
+      <ion-text class="no">编号：267</ion-text>
+      <ion-text slot="end" class="text_color_red">待审批</ion-text>
+    </ion-item>
+    <ion-card-content class="contact_content">
+      <ul class="contact_info">
+        <li>申请人：berlin998</li>
+        <li>申请日期：2019-07-30 13:47:26</li>
+      </ul>
+      <div>
+        <ion-button class="bottom_btn" color="medium" fill="outline" size="small" (click)="goapplydetail()">查看详情</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

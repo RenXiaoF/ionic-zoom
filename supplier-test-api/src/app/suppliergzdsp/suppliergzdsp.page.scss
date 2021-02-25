@@ -1,0 +1,50 @@
+// 清除浮动
+.clear::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+// 头部样式
+ion-header{
+    .btn_color{
+        color:black;
+    }
+    ion-title{
+        font-size: 0.8rem;
+    }
+}
+
+// 内容样式
+ion-content{
+    --background:#f6f4f4;
+    font-size: 0.8rem;
+    .btn_fontsize{
+        font-size:0.8rem;
+        .no{
+            font-weight: 800;
+        }
+        .text_color_red{
+            color:#f25454;
+        }
+    }
+    .contact_card{
+        background-color: #fff;
+        .contact_content{
+            padding: 0.8rem 0 0 1rem;
+            line-height: 1.5rem;
+            font-size: 0.8rem;
+            .contact_info{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 0.5rem;
+            }
+            .bottom_btn{
+                float: right;
+                margin-right:0.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}

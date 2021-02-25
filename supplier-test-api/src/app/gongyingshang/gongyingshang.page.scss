@@ -1,0 +1,53 @@
+// 清除页面ion-item默认下划线
+ion-item{
+    --inner-border-width:0;
+}
+// 头部样式
+.btn_color{
+    color:#282737;
+}
+.btn_fontsize{
+    font-size:0.8rem;
+}
+ion-header{
+    ion-toolbar{
+        --background:#f8f8f8;
+    }
+}
+// 内容区域
+.gongyingshang{
+    --background:#f8f8f8;
+    >.supplier_approval{
+        >ion-list{
+            >.residence_item{
+                >ion-text{
+                    .noApproval{
+                        color:#aaa;
+                    }
+                    .successPass{
+                        color:#28e070;
+                    }
+                    .noPass{
+                        color:#f25454;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.residence_item{
+    font-size: 0.8rem !important;
+}
+.btn{
+    --background:#50abf1;
+    width: 80%;
+    margin: 0 auto;
+}
+.reApply{
+    margin-top: 1rem;
+}
+.star{
+    color:red;
+}

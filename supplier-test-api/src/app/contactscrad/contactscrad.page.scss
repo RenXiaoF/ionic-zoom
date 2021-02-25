@@ -1,0 +1,155 @@
+//清楚默认样式
+a{
+	text-decoration: none;
+}
+*{ margin: 0;
+   padding: 0;
+}
+@mixin  headstyle {
+    color: #3880FF;
+    display: flex;
+    height:1rem;
+    justify-content: space-between;
+}
+// ---  头部 ---
+.contactscard-header{
+    width: 100%;
+    font-size:.9rem;
+    display: flex;
+    justify-content: space-between;
+    padding:.6rem;
+    box-sizing: border-box; 
+    background: white;
+    &--left{
+        >a{
+            >span{
+                vertical-align: middle
+            }
+           @include headstyle();
+        }
+        
+    }
+    &--mid{
+        font-weight: 800;
+    }
+    &--right{
+        >a{
+            @include headstyle();
+        }
+    }
+}
+//---主体内容
+.contactscard-content{
+    width:100%;
+    &--box{
+        width: 100%;
+    }
+    &--avater{
+        width: 100%;
+        background: rgb(190, 235, 232);
+        padding: .4rem 0;
+        box-sizing: border-box;
+        >div{
+            height: 4rem;
+            line-height: 4rem;
+            width: 91%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            >img{
+                display: block;
+                height: 100%;
+            }
+        }
+    }
+    &--item{
+        width: 92%;
+        height: 2rem;
+        line-height: 2rem;
+        padding:0  .1rem 0 .4rem; 
+        margin:.6rem auto;
+        font-size: .9rem;
+        display: flex;
+        justify-content: space-between;
+        border:0.04rem solid transparent;
+        background: rgb(190, 235, 232);
+        border-radius: .3rem;
+        box-sizing: border-box;
+        >div{
+            >ion-icon{
+                font-size: 1.2rem;
+                vertical-align: middle;
+                color: #3880FF;
+            }
+        }
+        >div:first-child{
+            color: rgb(32, 32, 31);
+        }
+        >ion-toggle{
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+    }
+    &--btn{
+        width: 100%;
+        text-align: center;
+        >ion-button{
+            width: 80%;
+            margin:1.2rem auto 0;
+            height: 2rem;
+            height: 2rem;
+        }
+    }
+}
+.contactscarddetails-content{
+    width: 100%;
+    &--input{
+        position: relative;
+        top:5%;
+        border-radius: .4rem;
+        height: 10rem;
+        width: 70%;
+        margin: 0 auto;
+        padding: 0.95rem .4rem;
+        >span{
+            display: block;
+            font-size: 0.95rem;
+            color: rgb(24, 24, 26);
+        }
+        >div{
+            margin-top: 0.95rem;
+            margin-left:5%;
+            width: 90%;
+            height: 2rem;
+            border: 0.04rem solid rgba(180, 129, 34, 0.575);
+            padding-left:.4rem;
+            box-sizing: border-box;
+            border-radius: .4rem;
+            overflow: hidden;
+            >ion-input{
+                font-size: 0.95rem;
+                width: 100%;
+                height: 98%;
+            }
+        }
+    }
+
+    &--search{
+        position: relative;
+        top:5%;
+        height: 10rem;
+        width: 70%;
+        margin: 0 auto;
+        height: 2rem;
+        height: 2rem;
+        >ion-item{
+            font-size: 0.95rem;
+        }
+    }
+    &--btn{
+        height: 2rem;
+        width: 70%;
+        margin-top:50%;
+        margin-left:15%;
+    }
+}

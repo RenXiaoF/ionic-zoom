@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon name="arrow-back"></ion-icon>
+        <ion-text>返回</ion-text>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="font_size">全部记录</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-text>刷新</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="6" style="text-align: center;" no-padding>
+      2019/07/16
+    </ion-col> 
+    <ion-col size="6" style="text-align: center;" no-padding>
+      2019/07/31
+    </ion-col> 
+  </ion-row>
+  <ion-button shape="round" expand="full" (click)="gocapacity()">申请产能与产值</ion-button>
+</ion-content>

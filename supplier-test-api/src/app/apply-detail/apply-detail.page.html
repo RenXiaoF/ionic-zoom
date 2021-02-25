@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar class="header_bgc">
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="btn_fontsize">申请详情</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="apply_detail">
+  <ul class="node_list">
+    <li class="node_item">
+      <p>主节点</p>
+      <ul class="node_content">
+        <li class="content_item">
+          <ion-toggle [checked]="progress_report.main" [(ngModel)]="progress_report.main" (click)="mainChange(progress_report)"></ion-toggle>
+          <ion-text>主节点：进度报数</ion-text>
+        </li>
+        <li class="content_item second_node" *ngFor="let item of progress_report.child;let myIndex = index;">
+          <ion-toggle [checked]="item.isChecked" [(ngModel)]="item.isChecked" (click)="itemChange(myIndex, progress_report)"></ion-toggle>
+          <ion-text>{{item.text}}</ion-text>
+        </li>
+      </ul>
+    </li>
+    <li class="node_item">
+      <p>主节点</p>
+      <ul class="node_content">
+        <li class="content_item">
+          <ion-toggle></ion-toggle>
+          <ion-text>主节点：成员管理</ion-text>
+        </li>
+      </ul>
+    </li>
+    <li class="node_item">
+      <p>主节点</p>
+      <ul class="node_content">
+        <li class="content_item">
+          <ion-toggle></ion-toggle>
+          <ion-text>主节点：对账单</ion-text>
+        </li>
+      </ul>
+    </li>
+    <li class="node_item">
+      <p>主节点</p>
+      <ul class="node_content">
+        <li class="content_item">
+          <ion-toggle></ion-toggle>
+          <ion-text>主节点：工作点审批</ion-text>
+        </li>
+      </ul>
+    </li>
+    <li class="node_item">
+      <p>主节点</p>
+      <ul class="node_content">
+        <li class="content_item">
+          <ion-toggle></ion-toggle>
+          <ion-text>主节点：扣款记录</ion-text>
+        </li>
+      </ul>
+    </li>
+    <li class="node_item">
+      <p>主节点</p>
+      <ul class="node_content">
+        <li class="content_item">
+          <ion-toggle></ion-toggle>
+          <ion-text>主节点：消息记录</ion-text>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ion-button expand="block" (click)="submit()">提交审核</ion-button>
+</ion-content>

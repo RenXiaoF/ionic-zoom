@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <a routerLink="/home">
+        <ion-button>
+          <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+        </ion-button>
+      </a>
+    </ion-buttons>
+    <ion-title class="btn_fontsize"></ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content id="app" style="width: 100%;"> -->
+
+<!-- <div class="box"> -->
+<div style="background-color: #16132E;height: 100%;">
+  <div class="t1">
+    <div class="t1_1">
+      <div class="logo"></div>
+    </div>
+    <div class="t1_2">应付款明细对账</div>
+    <div class=" Date1">日期： {{now_time}}至{{now_time}}</div>
+  </div>
+  <div class="b">
+    <div class="t2">
+      <div class="t4">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="18" class="tt">应付款明细对账</th>
+            </tr>
+            <tr class="sencondtitle">
+              <th rowspan="2">日期</th>
+              <th rowspan="2">摘要</th>
+              <th rowspan="2">单号</th>
+              <th rowspan="2">物料编号</th>
+              <th rowspan="2">物料名称</th>
+              <th rowspan="2">规格</th>
+              <th rowspan="2">颜色</th>
+              <th colspan="3">进货</th>
+              <th colspan="5">
+                <table>
+                  <tr>付款</tr>
+                  <tr>
+                    <th colspan="3">&emsp;&nbsp;&nbsp;预付款&emsp;&nbsp;&nbsp;</th>
+                    <th colspan="2">应付款</th>
+                  </tr>
+
+                </table>
+              </th>
+              <th rowspan="2">结余</th>
+              <th rowspan="2" colspan="2">备注</th>
+            </tr>
+            <tr class="sencondtitle">
+              <th>数量</th>
+              <th>单位</th>
+              <th>单价</th>
+
+
+              <th>付款</th>
+              <th>结余</th>
+              <th>预付核销</th>
+
+              <th>付款</th>
+              <th>结余</th>
+            </tr>
+
+            <tr class="sencondtitle">
+
+              <th>0</th>
+              <th>承上</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>0</th>
+              <th></th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th></th>
+
+            </tr>
+            <tr class="sencondtitle">
+              <th>合计</th>
+              <th>结余</th>
+              <th colspan="9"></th>
+              <th>0</th>
+              <th colspan="2"></th>
+              <th>0</th>
+              <th>0</th>
+              <th></th>
+            </tr>
+          </thead>
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>
+
+<script>
+  var pageX, pageY, initX, initY, isTouch = false;
+  var start = [];
+  document.addEventListener("touchstart", function (e) {
+
+
+    //手指按下时的手指所在的X，Y坐标  
+    pageX = e.targetTouches[0].pageX;
+    pageY = e.targetTouches[0].pageY;
+
+
+    //初始位置的X，Y 坐标  
+    initX = e.target.offsetLeft;
+    initY = e.target.offsetTop;
+
+
+    //记录初始 一组数据 作为缩放使用
+    if (e.touches.length >= 2) { //判断是否有两个点在屏幕上
+      start = e.touches; //得到第一组两个点
+    };
+
+
+    //表示手指已按下  
+    isTouch = true;
+  }, false);
+
+
+  //监听 touchmove 事件 手指 移动时 做的事情
+  document.addEventListener("touchmove", function (e) {
+    e.preventDefault();
+    // 一根 手指 执行 目标元素移动 操作
+    if (e.touches.length == 1 && isTouch) {
+
+
+      //移动目标的 X Y 坐标
+      var touchMoveX = e.targetTouches[0].pageX,
+        touchMoveY = e.targetTouches[0].pageY;
+      //设置当前点击元素的 top left 定位值
+      e.target.style.left = parseInt(touchMoveX) - parseInt(pageX) + parseInt(initX) + "px";
+      e.target.style.top = parseInt(touchMoveY) - parseInt(pageY) + parseInt(initY) + "px";
+    };
+
+
+    // 2 根 手指执行 目标元素放大操作
+    if (e.touches.length >= 2 && isTouch && e.scale < 2.5) {
+
+
+      //得到第二组两个点
+      var now = e.touches;
+      //得到缩放比例， getDistance 是勾股定理的一个方法
+      var scale = (getDistance(now[0], now[1]) / getDistance(start[0], start[1]));
+      // 对缩放 比例 取整
+      e.scale = scale.toFixed(2);
+      // 执行目标元素的缩放操作
+      e.target.style.transform = "scale(" + scale + ")";
+    };
+
+
+  }, false);
+
+
+  //监听 手指离开屏幕时 
+  document.addEventListener("touchend", function (e) {
+    //将 isTouch 修改为false  表示 手指已经离开屏幕
+    if (isTouch) {
+      isTouch = false;
+    }
+  }, false);
+
+
+  //缩放 勾股定理方法
+  function getDistance(p1, p2) {
+    var x = p2.pageX - p1.pageX,
+      y = p2.pageY - p1.pageY;
+    return Math.sqrt((x * x) + (y * y));
+  };
+</script>
+
+<!-- </ion-content> -->

@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start" (click)="goback()">
+        <ion-button class="btn_color">
+          <ion-icon name="arrow-back"></ion-icon>
+          <ion-text>返回</ion-text>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="font_size">发货列表</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card class="order_detail" *ngFor="let item of products;let myIndex = index;">
+      <ion-card-content>
+        <ul class="detail_info">
+          <li>物料名称：{{item.name}}</li>
+          <li>物料编号：{{item.code}}</li>
+          <li>颜色：{{item.color}}</li>
+          <li>色号：{{item.colorid}}</li>
+          <li>规格：{{item.model}}</li>
+          <li>单位：{{item.MultUnit}}</li>
+          <li>批次：{{item.batchno}}</li>
+          <li *ngIf="submitSteta[myIndex]">数量：{{item.multqty}}</li>
+          <li *ngIf="!submitSteta[myIndex]">数量：<input type="number" class="inputBox" [value]="item.multqty" [(ngModel)]="item.multqty"/></li>
+        </ul>
+        <div class="bottom_btn">
+          <ion-button fill="outline" shape="round" (click)="changeNum(myIndex, submitSteta[myIndex])">
+            <ion-icon slot="start" mode="ios" name="archive"></ion-icon>
+            {{submitText[myIndex]}}
+          </ion-button>
+          <ion-button fill="outline" shape="round" (click)="removeItem(myIndex)">
+            <ion-icon slot="start" mode="md" name="trash"></ion-icon>
+            移出
+          </ion-button>          
+        </div>
+        <div class="corner">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          <span>已选</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  
+  </ion-content>
+  

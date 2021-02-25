@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon mode="ios" class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{headerTitle}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon mode="ios" class="btn_color" name="list"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  <!-- 供应商入驻信息填写 -->
+  <ion-content>
+    <div *ngIf="!isApproval">
+      <ul class="main_list">
+
+        <!-- <li>
+          <ion-list class="m0">
+            <ion-item>
+              <ion-label>主功能：工作点审批</ion-label>
+              <ion-toggle slot="end" [checked]="main_work" [(ngModel)]="main_work"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </li>
+
+        <li>
+          <ion-list class="m0">
+            <ion-item>
+              <ion-label>主功能：成员管理</ion-label>
+              <ion-toggle slot="end" [checked]="main_manage" [(ngModel)]="main_manage"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </li>
+
+        <li>
+          <ion-list class="m0">
+            <ion-item>
+              <ion-label>主功能：对账单</ion-label>
+              <ion-toggle slot="end" [checked]="main_account" [(ngModel)]="main_account"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </li>
+
+        <li class="main_invoice">
+          <ion-list class="m0">
+            <ion-item>
+              <ion-label>主功能：发货单</ion-label>
+              <ion-toggle slot="end" [checked]="main_invoice.inv_main" [(ngModel)]="main_invoice.inv_main" (click)="mainChange(main_invoice)"></ion-toggle>
+            </ion-item>
+            <ion-item class="second_item" *ngFor="let item of main_invoice.inv_items;let myIndex = index">
+              <ion-label>{{item.text}}</ion-label>
+              <ion-toggle slot="end" [checked]="item.isChecked" [(ngModel)]="item.isChecked" (click)="itemChange(myIndex, main_invoice)"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </li> -->
+
+        <li class="main_myorder" *ngFor="let list of nodeInfo.ModelList">
+          <ion-list class="m0">
+            <ion-item>
+              <ion-label>主功能：{{list.model_name}}</ion-label>
+              <ion-toggle slot="end" [checked]="list.isChecked"  [(ngModel)]="list.isChecked" (click)="mainChange(list)"></ion-toggle>
+            </ion-item>
+            <ng-container *ngIf="list.action_sql&&list.action_sql!='xx'">
+              <ion-item class="second_item" *ngFor="let childItem of list.action_sql;let myIndex = index">
+                <ion-label>子功能：{{childItem.modelson_name}}</ion-label>
+                <ion-toggle slot="end" [checked]="childItem.isChecked" [(ngModel)]="childItem.isChecked" (click)="itemChange(myIndex, list)" data-id="myIndex"></ion-toggle>
+              </ion-item>
+            </ng-container>
+          </ion-list>
+        </li>
+
+      </ul>
+      <ion-button class="btn" expand="block" (click)="submitInfo()">提交申请</ion-button>
+    </div>
+    <!-- 供应商入驻信息提交 -->
+    <div *ngIf="isApproval">
+      <ion-list>
+        <ion-item class="residence_item">
+          <ion-label>申请人：berlin07</ion-label>
+        </ion-item>
+        <ion-item class="residence_item">
+          <ion-label>审核状态：等待管理员审核</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-button class="btn" expand="block" (click)="goback()">返回</ion-button>
+      <ion-button class="btn reApply" expand="block" (click)="reApply()">重新申请</ion-button>
+    </div>
+  </ion-content>

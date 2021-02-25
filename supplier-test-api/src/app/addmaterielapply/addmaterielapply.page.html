@@ -1,0 +1,41 @@
+<!-- 头部 -->
+<ion-header>
+  <div class="addmaterielapply-header">
+    <div class="addmaterielapply-header--left">
+      <a routerLink="/suppliermy">
+        <ion-icon name="arrow-back" style="font-size:1.2rem;margin-top: 0rem;margin-right: -.1rem" color="primary">
+        </ion-icon>
+        <span>返回</span>
+      </a>
+    </div>
+    <div class="addmaterielapply-header--mid">物料购买申请</div>
+    <div class="addmaterielapply-header--right">
+      <span></span>
+    </div>
+  </div>
+</ion-header>
+<!-- 主体 -->
+<ion-content style="--offset-top: 0px;--offset-bottom: 0px;--keyboard-offset: 0px;">
+  <div class="addmaterielapply-content">
+    <div class="addmaterielapply-content--title">
+      <span>物料类型</span>
+      <span>物料编号</span>
+      <span>物料名称</span>
+    </div>
+    <ul class="addmaterielapply-content--list">
+      <li *ngFor="let materiel of materielapplylists,let i = index" class="addmaterielapply-content--item">
+        <div class="addmaterielapply-content--box">
+          <input type="checkbox">
+          <div class="addmaterielapply-content--childbox">
+            <span>{{ materiel.mains}}</span>
+            <span>{{ materiel.number}}</span>
+            <span>{{ materiel.name}}</span>
+          </div>
+        </div>
+      </li>
+      <div class="addmaterielapply-content--btn">
+        <button>保存</button>
+      </div>
+    </ul>
+  </div>
+</ion-content>

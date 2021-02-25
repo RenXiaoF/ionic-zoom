@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start" (click)="goback()">
+      <ion-button>
+        <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="btn_fontsize">进度报数节点</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+          <ion-icon class="btn_color" name="list"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="convertermy">
+  <ion-list class="apply_node">
+    <ion-item (click)="gobanplanapply()">
+      <ion-text slot="end" class="btn_fontsize">申请节点</ion-text>
+      <ion-icon name="arrow-forward" slot="end" class="node_icon"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-text class="btn_fontsize">节点：</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="node_info">
+    <ion-radio-group>
+      <ion-item>
+        <ion-label>008/车缝</ion-label>
+        <ion-radio color="medium" mode="md" slot="start"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>009/尾部</ion-label>
+        <ion-radio color="medium" mode="md" slot="start"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>003/尾期物料采购</ion-label>
+        <ion-radio color="medium" mode="md" slot="start"></ion-radio>
+      </ion-item>
+      
+    </ion-radio-group>
+  </ion-list>
+  <div class="bottom_btn">
+    <ion-button class="btn_width">返回</ion-button>
+    <ion-button class="btn_width">扫描</ion-button>
+    <ion-button class="btn_width">查看情况</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,105 @@
+<ion-header class="user_top">
+  <ion-toolbar class="headerup">
+    <ion-buttons slot="start" class="headerupleft">
+      <a routerLink="/suppliermy">
+        <ion-button class="btn_color">
+          <ion-icon mode="ios" name="arrow-back"></ion-icon>
+          <ion-text class="btn_fontsize">返回</ion-text>
+        </ion-button>
+      </a>
+    </ion-buttons>
+    <ion-title class="btn_fontsize" class="headerupcenter">供应商App</ion-title>
+    <ion-text slot="end" class="headerupright">罗斯智能陈工</ion-text>
+  </ion-toolbar>
+</ion-header>
+  <!-- 内容区域 -->
+<ion-content class="suppliermy">
+  <div class="headerdown">
+    <div class="headerdownleft" (click)="showWxModel()">
+      <ion-icon mode="md" class="iconfont icon_person" name="person-add"></ion-icon>
+      <span>添加联系人</span>
+    </div>
+    <div class="headerdownright" (click)="gogongneng()">
+      <ion-icon class="iconfont working_point" name="construct"></ion-icon>
+      <span>申请工作点</span>
+    </div>
+    <div class="headerdownright" (click)="goDelphiTest()">
+      <ion-icon class="iconfont working_point" name="construct"></ion-icon>
+      <span>delphi学习</span>
+    </div>
+  </div>
+
+  <div class="myOrder" *ngFor="let order of pageData.order;">
+    <h3 class="order_title border-bottom">{{order.model_name}}</h3>
+    <ul class="order_list">
+
+      <li *ngFor="let item of order.action_sql;let myIndex = index;" (click)="openPage(order, myIndex)">
+        <a href="javascript:;" class="order_item">
+          <ion-icon class="order_icon {{item.imgurl}}" name="clipboard"></ion-icon>
+          <i class="iconfont iconfont_big {{item.imgurl}} list-item-ic" [ngStyle]="{'color': item.color? item.color:'#50abf1'}"></i>
+          <span>{{item.modelson_name}}</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  
+  <div class="account" *ngFor="let account of pageData.account;" (click)="openPage(account)">
+    <span class="account_left"><ion-icon name="settings"></ion-icon></span>
+    <span class="account_center">{{account.model_name}}</span>
+    <span class="account_right"><ion-icon name="arrow-forward"></ion-icon></span>
+  </div>
+
+  <div class="person_manage" *ngFor="let person of pageData.person;" (click)="openPage(person, user_id)">
+    <span class="manage_left"><ion-icon name="settings"></ion-icon></span>
+    <span class="manage_center">{{person.model_name}}</span>
+    <span class="manage_right"><ion-icon name="arrow-forward"></ion-icon></span>
+  </div>
+
+
+  <!-- 添加联系人模态框 -->
+  <div class="wxModel" *ngIf="WxModel">
+    <ion-card class="modelContent">
+      <ion-card-header>
+        <ion-card-title>打开微信扫一扫</ion-card-title>
+      </ion-card-header>
+        
+      <ion-card-content>
+        <img src="../../assets/erweima.jpg" alt="二维码" />
+          <ion-button color="light" class="closeBtn" (click)="closeModel()">关闭</ion-button>
+        </ion-card-content>
+      </ion-card>
+  </div>
+  <!-- 对账单模态框 -->
+  <div class="accountModel" *ngIf="AccountModel">
+    <ion-card class="modelContent">
+      <ion-card-header>
+        <ion-card-title>查询条件</ion-card-title>
+      </ion-card-header>
+        
+      <ion-card-content>
+
+        <ion-item>
+          <ion-label position="fixed">币种：</ion-label>
+          <!-- "action-sheet" | "alert" | "popover -->
+          <ion-select [(ngModel)]="moneyType.current" value="moneyType.current" interface="action-sheet" cancel-text="取消" >
+            <ion-select-option *ngFor="let item of moneyType.type;let myIndex = index;" [value]="myIndex">{{item.money}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">起始时间：</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" cancelText="取 消" doneText="确 定" [(ngModel)]="startDate"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">结束时间：</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" cancelText="取 消" doneText="确 定" [(ngModel)]="endDate"></ion-datetime>
+        </ion-item>
+
+        <ion-button class="submit" expand="block" (click)="accountSearch()">查询</ion-button>        
+        <ion-button color="light" class="closeBtn" (click)="closeModel()">关闭</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

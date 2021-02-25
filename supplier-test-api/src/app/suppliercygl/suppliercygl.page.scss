@@ -1,0 +1,86 @@
+// 头部样式
+.btn_color{
+    color:black;
+}
+.btn_fontsize{
+    font-size:0.8rem;
+}
+// 内容样式
+ion-content{
+    .contact_card{
+        ion-item{
+            font-size:0.8rem;
+            .text_color_red{
+                color:#f25454;
+            }
+            .text_color_green{
+                color:#28e070;
+
+            }
+        }
+        .contact_content{
+            padding: 0.8rem 0 0 1rem;
+            line-height: 1.5rem;
+            font-size: 0.8rem;
+            .contact_info{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 0.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                li{
+                    width: 50%;
+                }
+            }
+            .bottom_btn{
+                float: right;
+                margin-right:0.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+    .searchModel{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .modelContent{
+            position: relative;
+            background-color: white;
+            width: 90%;
+            ion-card-header{
+                --background:#50abf1;
+                text-align: center;
+                padding: 0.5rem 0.8rem;
+                ion-card-title{
+                    font-size: 1rem;
+                    color:white;
+                }
+            }
+            ion-card-content{
+                ion-input{
+                    border: 1px solid #ccc;
+                    border-radius: 0.625rem;
+                }
+                .search{
+                    --border-radius: 0.625rem;
+                    margin-top: 1rem;
+                }
+            }
+            .closeBtn{
+                position: absolute;
+                top: -2.25rem;
+                right: 0.25rem;
+                height:1.75rem;
+                --color:red;
+            }
+        }
+    }
+}

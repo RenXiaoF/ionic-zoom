@@ -1,0 +1,221 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <a routerLink="/home">
+        <ion-button>
+          <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+        </ion-button>
+      </a>
+    </ion-buttons>
+    <ion-title class="btn_fontsize"></ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content  style="width: 100%;"> -->
+
+  <!-- <div > -->
+    <div class=" wrapper scale"  style="background-color: #16132E;height: 100%;">
+      <div class="t1">
+        <div class="t1_1">
+          <div class="logo"></div>
+        </div>
+        <div class="t1_2">应付款明细对账</div>
+        <div class=" Date1">日期： {{now_time}}至{{now_time}}</div>
+      </div>
+      <div class="b">
+        <div class="t2">
+          <div class="t4">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="18" class="tt">应付款明细对账</th>
+                </tr>
+                <tr class="sencondtitle">
+                  <th rowspan="2">日期</th>
+                  <th rowspan="2">摘要</th>
+                  <th rowspan="2">单号</th>
+                  <th rowspan="2">物料编号</th>
+                  <th rowspan="2">物料名称</th>
+                  <th rowspan="2">规格</th>
+                  <th rowspan="2">颜色</th>
+                  <th colspan="3">进货</th>
+                  <th colspan="5">
+                    <table>
+                      <tr>付款</tr>
+                      <tr>
+                        <th colspan="3">&emsp;&nbsp;&nbsp;预付款&emsp;&nbsp;&nbsp;</th>
+                        <th colspan="2">应付款</th>
+                      </tr>
+
+                    </table>
+                  </th>
+                  <th rowspan="2">结余</th>
+                  <th rowspan="2" colspan="2">备注</th>
+                </tr>
+                <tr class="sencondtitle">
+                  <th>数量</th>
+                  <th>单位</th>
+                  <th>单价</th>
+
+
+                  <th>付款</th>
+                  <th>结余</th>
+                  <th>预付核销</th>
+
+                  <th>付款</th>
+                  <th>结余</th>
+                </tr>
+
+                <tr class="sencondtitle">
+
+                  <th>0</th>
+                  <th>承上</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>0</th>
+                  <th></th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th></th>
+
+                </tr>
+                <tr class="sencondtitle">
+                  <th>合计</th>
+                  <th>结余</th>
+                  <th colspan="9"></th>
+                  <th>0</th>
+                  <th colspan="2"></th>
+                  <th>0</th>
+                  <th>0</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+  <script type="text/javascript">
+    var wrapper = document.querySelector('.wrapper');
+    var element = document.querySelector('.scale');
+    var vendors;
+    var distance = {};
+    var origin;
+    var scale = 1;
+    var isCanScale = false;
+    function handleTouch(e) {
+      // e.preventDefault();
+      switch (e.type) {
+        case 'touchstart':
+          if (e.touches.length > 1) {
+            distance.start = getDistance({
+              x: e.touches[0].screenX,
+              y: e.touches[0].screenY
+            }, {
+              x: e.touches[1].screenX,
+              y: e.touches[1].screenY
+            });
+          }
+          break;
+        case 'touchmove':
+          if (e.touches.length === 2) {
+            origin = getOrigin({
+              x: event.touches[0].pageX,
+              y: event.touches[0].pageY
+            }, {
+              x: event.touches[1].pageX,
+              y: event.touches[1].pageY
+            });
+            distance.stop = getDistance({
+              x: e.touches[0].screenX,
+              y: e.touches[0].screenY
+            }, {
+              x: e.touches[1].screenX,
+              y: e.touches[1].screenY
+            });
+            scale = distance.stop / distance.start;
+            isCanScale = true;
+            setScaleAnimation(scale, true);
+          }
+          break;
+        case 'touchend':
+          scale = 1;
+          setScaleAnimation(scale);
+          break;
+        case 'touchcancel':
+          scale = 1;
+          setScaleAnimation(scale);
+          break;
+        default: ;
+      }
+    }
+    function vendor() {
+      var TRANSITION = 'transition';
+      var TRANSITION_END = 'transitionend';
+      var TRANSFORM = 'transform';
+      var TRANSFORM_PROPERTY = 'transform';
+      var TRANSITION_PROPERTY = 'transition';
+
+      if (typeof document.body.style.webkitTransform !== undefined) {
+        TRANSFORM = 'webkitTransform';
+        TRANSITION = 'webkitTransition';
+        TRANSITION_END = 'webkitTransitionEnd';
+        TRANSFORM_PROPERTY = '-webkit-transform';
+        TRANSITION_PROPERTY = '-webkit-transition';
+      }
+      return {
+        TRANSFORM: TRANSFORM,
+        TRANSITION: TRANSITION,
+        TRANSITION_END: TRANSITION_END,
+        TRANSFORM_PROPERTY: TRANSFORM_PROPERTY,
+        TRANSITION_PROPERTY: TRANSITION_PROPERTY
+      };
+    }
+    function getOrigin(first, second) {
+      return {
+        x: (first.x + second.x) / 2,
+        y: (first.y + second.y) / 2
+      };
+    }
+    function getDistance(start, stop) {
+      return Math.sqrt(Math.pow((stop.x - start.x), 2) + Math.pow((stop.y - start.y), 2));
+    }
+    function setScaleAnimation(scale, animation) {
+      var transition_animation = '';
+      var x, y;
+      if (!isCanScale) {
+        return;
+      }
+      isCanScale = false;
+      if (animation) {
+        transition_animation = 'none';
+      } else {
+        transition_animation = vendors.TRANSFORM_PROPERTY + ' 0.3s ease-out';
+      }
+      element.style[vendors.TRANSITION] = transition_animation;
+      x = origin.x + (-origin.x) * scale;
+      y = origin.y + (-origin.y) * scale;
+
+      element.style[vendors.TRANSFORM] = 'matrix(' + scale + ', 0, 0, ' + scale + ', ' + x + ', ' + y + ')';
+    }
+    vendors = vendor();
+    wrapper.addEventListener('touchstart', handleTouch);
+    wrapper.addEventListener('touchmove', handleTouch);
+    wrapper.addEventListener('touchend', handleTouch);
+    wrapper.addEventListener('touchcancel', handleTouch);
+  </script>
+
+<!-- </ion-content> -->

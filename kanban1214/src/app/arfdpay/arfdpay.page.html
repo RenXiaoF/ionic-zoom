@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <a routerLink="/home">
+        <ion-button>
+          <ion-icon class="btn_color" name="arrow-back"></ion-icon>
+        </ion-button>
+      </a>
+    </ion-buttons>
+    <!-- <ion-title class="btn_fontsize">应付款明细对账</ion-title> -->
+    <ion-title class="btn_fontsize"></ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- 一.缩放    注销掉  ion-content 可以缩放 -->
+<!-- <ion-content style="width: 100%;"> -->
+
+<div class="content" style="background-color: #16132E; height: 100%;">
+  <div class="t1">
+    <div class="t1_1">
+      <div class="logo"></div>
+    </div>
+    <div class="t1_2">应付款明细对账</div>
+    <div class=" Date1">日期： {{now_time}}至{{now_time}}</div>
+  </div>
+  <div class="b">
+    <div class="t2">
+      <div class="t4">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="18" class="tt">应付款明细对账</th>
+            </tr>
+            <tr class="sencondtitle">
+              <th rowspan="2">日期</th>
+              <th rowspan="2">摘要</th>
+              <th rowspan="2">单号</th>
+              <th rowspan="2">物料编号</th>
+              <th rowspan="2">物料名称</th>
+              <th rowspan="2">规格</th>
+              <th rowspan="2">颜色</th>
+              <th colspan="3">进货</th>
+              <th colspan="5">
+                <table>
+                  <tr>付款</tr>
+                  <tr>
+                    <th colspan="3">&emsp;&nbsp;&nbsp;预付款&emsp;&nbsp;&nbsp;</th>
+                    <th colspan="2">应付款</th>
+                  </tr>
+
+                </table>
+              </th>
+              <th rowspan="2">结余</th>
+              <th rowspan="2" colspan="2">备注</th>
+            </tr>
+            <tr class="sencondtitle">
+              <th>数量</th>
+              <th>单位</th>
+              <th>单价</th>
+
+
+              <th>付款</th>
+              <th>结余</th>
+              <th>预付核销</th>
+
+              <th>付款</th>
+              <th>结余</th>
+            </tr>
+
+            <tr class="sencondtitle">
+
+              <th>0</th>
+              <th>承上</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>0</th>
+              <th></th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th></th>
+
+            </tr>
+            <tr class="sencondtitle">
+              <th>合计</th>
+              <th>结余</th>
+              <th colspan="9"></th>
+              <th>0</th>
+              <th colspan="2"></th>
+              <th>0</th>
+              <th>0</th>
+              <th></th>
+            </tr>
+          </thead>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- </ion-content> -->
